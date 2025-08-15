@@ -1,0 +1,17 @@
+name: My First Workflow
+
+# whenever i push to this repository, this workflow will be executed. on: -> is the trigger
+on: push 
+
+jobs: 
+    first_job: # name of the job
+        runs-on: ubuntu-latest # where the job should run, ubuntu-latest is Github-hosted runner
+        steps: # include all the tasks you want
+        - name: Welcome message # name of the step
+          run: echo "My first Github Actions Job"
+
+        - name: List files
+          run: ls
+
+        - name: Read file
+          run: cat README.md
