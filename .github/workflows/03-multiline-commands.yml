@@ -1,0 +1,24 @@
+# in the previous example we used multiple steps for different commands
+# we can use one step for the commands
+
+name: My First Workflow
+
+# whenever i push to this repository, this workflow will be executed. on: -> is the trigger
+on: push 
+
+jobs: 
+    first_job: # name of the job
+        runs-on: ubuntu-latest # where the job should run, ubuntu-latest is Github-hosted runner
+        steps: # include all the tasks you want
+        - name: Checkout code
+          uses: actions/checkout@v5  #https://github.com/marketplace/actions/checkout 
+          
+        - name: List and read file
+          run: |
+             echo "My first Github Actions Job"
+             ls 
+             cat README.md
+
+        - name: Generate ASCII Artwork
+          run: cowsay -f dragon "I am a DRAGON!!!!" >> dragon.txt
+
