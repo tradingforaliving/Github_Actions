@@ -1,0 +1,19 @@
+# we can also run shell scripts on the runners
+
+name: Generate ASCII Dragon
+
+# whenever i push to this repository, this workflow will be executed. on: -> is the trigger
+on: push 
+
+jobs: 
+    first_job: # name of the job
+        runs-on: ubuntu-latest # where the job should run, ubuntu-latest is Github-hosted runner
+        steps: 
+        - name: Checkout Code
+          uses: actions/checkout@v5
+
+        - name: List Repo files
+          run: ls
+
+        - name: Execute Shell Script
+          run: ./ascii-script.sh. # path to script
