@@ -16,4 +16,4 @@ jobs:
           run: ls
 
         - name: Execute Shell Script
-          run: ./ascii-script.sh. # path to script
+          run: ./ascii-script.sh # path to script
