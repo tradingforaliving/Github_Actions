@@ -16,4 +16,7 @@ jobs:
           run: ls
 
         - name: Execute Shell Script
-          run: ./ascii-script.sh # path to script
+          run: |
+            chmod +x ./ascii-script.sh
+            ./ascii-script.sh # path to script
+
