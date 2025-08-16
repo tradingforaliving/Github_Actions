@@ -1,0 +1,20 @@
+# https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows
+# if multiple filters are specified, all of them must be satisfied for the workflow to run
+name: NPM package workflow
+on: 
+    push:
+        branches:
+            - main
+            - 'releases/**'
+        paths-ignore:
+            - 'docs/**'
+
+jobs:
+    ndoe-16-tests:
+        runs-on: ubuntu-latest
+        steps: 
+            - uses: actions/setup-node@v4
+              with: 
+                node-version: 16
+            - run: npm ci
+            - run: npm test
